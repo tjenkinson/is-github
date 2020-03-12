@@ -19,7 +19,7 @@ async function getMeta({ timeout, userAgent }) {
 
   let timer;
   if (timeout) {
-    timer = setTimeout(() => controller.abort(), timeout);
+    timer = setTimeout(() => abortController.abort(), timeout);
   }
   const clearTimer = () => timer && clearTimeout(timer);
 
