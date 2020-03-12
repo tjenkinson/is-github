@@ -4,6 +4,9 @@
   "description": "A small library which checks if the provided IP address belongs to GitHub.",
   "main": "dist/build-node.js",
   "browser": "dist/build-web.js",
+  "files": [
+    "dist/**/*"
+  ],
   "scripts": {
     "build": "rollup --config rollup.config.js",
     "watch": "rollup --config rollup.config.js --watch",
