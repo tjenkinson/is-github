@@ -1,0 +1,11 @@
+{
+  "plugins": ["babel-plugin-transform-async-to-promises"],
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "modules": false
+      }
+    ]
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "is-github",
+  "version": "1.0.0",
+  "description": "A small library which checks if the provided IP address belongs to GitHub.",
+  "main": "dist/build-node.js",
+  "browser": "dist/build-web.js",
+  "scripts": {
+    "build": "rollup --config rollup.config.js",
+    "watch": "rollup --config rollup.config.js --watch",
+    "prettier": "prettier --write **/*.{js,md}"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjenkinson/is-github.git"
+  },
+  "keywords": [
+    "github",
+    "ip",
+    "ip address",
+    "validate",
+    "secure"
+  ],
+  "author": "Tom Jenkinson <tom@tjenkinson.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjenkinson/is-github/issues"
+  },
+  "homepage": "https://github.com/tjenkinson/is-github#readme",
+  "dependencies": {
+    "abort-controller": "^3.0.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "babel-plugin-transform-async-to-promises": "^0.8.15",
+    "husky": "^4.2.3",
+    "prettier": "^1.19.1",
+    "rollup": "^2.0.5",
+    "rollup-plugin-babel": "^4.4.0"
+  }
+}
