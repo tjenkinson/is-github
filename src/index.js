@@ -6,6 +6,7 @@ const defaultUserAgent = 'is-github';
 const defaultTimeout = 5000;
 const services = ['hooks', 'web', 'api', 'git', 'pages', 'importer'];
 const maxAgeRegex = /max\-age=(\d+)/;
+const numberRegex = /^[0-9]+$/;
 
 let metaResponseCache = null;
 
@@ -51,17 +52,27 @@ async function getMeta({ timeout, userAgent }) {
   return resJson;
 }
 
+function validIp4Part(part) {
+  return numberRegex.test(part) && part >= 0 && part <= 255;
+}
+
 // https://tech.mybuilder.com/determining-if-an-ipv4-address-is-within-a-cidr-range-in-javascript/
 function ip4ToInt(ip) {
+  const fail = () => {
+    throw new Error('Error converting IP to int.');
+  };
   const parts = ip.split('.');
   if (parts.length !== 4) {
-    throw new Error('Error converting IP to int.');
+    fail();
   }
-  try {
-    return parts.reduce((int, oct) => (int << 8) + parseInt(oct, 10), 0) >>> 0;
-  } catch (e) {
-    throw new Error('Error converting IP to int.');
-  }
+  return (
+    parts.reduce((int, oct) => {
+      if (!validIp4Part(oct)) {
+        fail();
+      }
+      return (int << 8) + parseInt(oct, 10);
+    }, 0) >>> 0
+  );
 }
 
 function isIp4InCidr(ip, cidr) {
