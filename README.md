@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/is-github.svg)](https://badge.fury.io/js/is-github)
+
 # is-github
 
 A small JavaScript library which checks if the provided IP address belongs to GitHub. Works in Node and the browser.
