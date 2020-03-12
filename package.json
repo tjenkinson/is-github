@@ -1,6 +1,6 @@
 {
   "name": "is-github",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A small library which checks if the provided IP address belongs to GitHub.",
   "main": "dist/build-node.js",
   "browser": "dist/build-web.js",
