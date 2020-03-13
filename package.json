@@ -10,7 +10,8 @@
   "scripts": {
     "build": "rollup --config rollup.config.js",
     "watch": "rollup --config rollup.config.js --watch",
-    "prettier": "prettier --write **/*.{js,md}"
+    "prettier": "prettier --write **/*.{js,md}",
+    "preversion": "npm run build"
   },
   "husky": {
     "hooks": {
