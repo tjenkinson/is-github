@@ -1,5 +1,7 @@
-import fetch from 'node-fetch';
-import AbortController from 'abort-controller';
+const fetch = __NODE_BUILD__ ? require('node-fetch') : window.fetch;
+const AbortController = __NODE_BUILD__
+  ? require('abort-controller')
+  : window.AbortController;
 
 const baseUrl = 'https://api.github.com';
 const defaultUserAgent = 'is-github';
