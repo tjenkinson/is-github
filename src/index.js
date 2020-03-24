@@ -29,7 +29,7 @@ async function getMeta({ timeout, userAgent }) {
   try {
     res = await fetch(`${baseUrl}/meta`, {
       signal: abortController.signal,
-      headers: { 'User-Agent': userAgent }
+      headers: { 'User-Agent': userAgent },
     });
   } catch (e) {
     clearTimer();
@@ -92,7 +92,7 @@ export async function isGitHub(
   {
     service = 'hooks',
     timeout = defaultTimeout,
-    userAgent = defaultUserAgent
+    userAgent = defaultUserAgent,
   } = {}
 ) {
   if (!ipAddress) {
@@ -103,5 +103,5 @@ export async function isGitHub(
   }
   const meta = await getMeta({ timeout, userAgent });
   const addresses = meta[service];
-  return addresses.some(cidr => isIp4InCidr(ipAddress, cidr));
+  return addresses.some((cidr) => isIp4InCidr(ipAddress, cidr));
 }
