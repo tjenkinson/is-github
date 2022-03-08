@@ -38,7 +38,7 @@
   "homepage": "https://github.com/tjenkinson/is-github#readme",
   "dependencies": {
     "abort-controller": "^3.0.0",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^3.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
